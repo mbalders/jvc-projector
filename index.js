@@ -86,6 +86,10 @@ export default class JVC extends EventEmitter {
     ]));
   }
 
+  sendCommand(cmd) {
+    this.write(Buffer.from(cmd));
+  }
+
   async connect() {
     return await new Promise((accept) => {
       this.logger.info('Connecting to JVC projector');
